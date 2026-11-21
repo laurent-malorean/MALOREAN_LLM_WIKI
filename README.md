@@ -6,6 +6,10 @@ Le principe : on ajoute un PDF, on en extrait le texte, puis on le découpe en n
 
 Thèmes : `maintenance`, `product_management`, `design_ux_ui`, `ai_data_science`, `marketing`, `physique_quantique`, `sociologie`.
 
+## En savoir plus sur le LLM wiki
+
+Pour comprendre l'idée, la démarche et les usages d'un wiki alimenté par un LLM, lisez la présentation [Conf001-Wiki-IA.pdf](Conf001-Wiki-IA.pdf) à la racine du dépôt.
+
 ## Structure
 
 ```
