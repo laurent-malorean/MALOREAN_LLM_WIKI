@@ -1,0 +1,26 @@
+[project]
+name = "lde-wiki-ia"
+version = "0.1.0"
+description = "Wiki IA multi-thèmes : ingestion PDF, RAG, API, serveur de révision"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    # --- Ingestion PDF ---
+    "ocrmypdf==15.4.4",
+    "img2pdf==0.6.3",
+    "pikepdf==9.11.0",
+    "pdfminer.six==20251107",
+    "pillow==11.3.0",
+    "reportlab==4.5.1",
+    # --- RAG (app/rag/) ---
+    "lancedb>=0.6",
+    "sentence-transformers>=2.7",
+    "python-frontmatter>=1.1,<1.2",
+    "pyarrow>=14.0",
+    # --- Graphify ---
+    "graphifyy",
+    # --- API (app/api/) + serveur de révision (app/website/) ---
+    "flask>=3.0,<4.0",
+]
+
+[tool.uv]
+package = false

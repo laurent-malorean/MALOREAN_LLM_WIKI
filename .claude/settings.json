@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(/.claude/skills/graphify_build/**)",
+      "Edit(/.claude/skills/graphify_query/**)",
+      "Edit(/.claude/skills/graphify_update/**)",
+      "Edit(/.claude/skills/graphify_explain/**)",
+      "Edit(/.claude/skills/graphify_path/**)",
+      "Edit(/.claude/skills/wiki-search/**)",
+      "Edit(/.claude/skills/source-add/**)",
+      "Edit(/.claude/skills/wiki-lint/**)",
+      "Edit(/.claude/skills/source-ingest-batch/**)",
+      "Edit(/.claude/skills/db-rag-update/**)",
+      "Edit(/.claude/skills/db-rag-search/**)",
+      "Edit(/.claude/skills/source-ingest/**)",
+      "Workflow",
+      "Edit(/.claude/skills/wiki-api-start/**)"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/capture-prompt.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/track-changes.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/warn-rag-solo.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "skipWorkflowUsageWarning": true
+}

@@ -1,0 +1,6 @@
+name: wiki-broken-links
+description: "Scan tous les liens cassés du wiki et génère un rapport JSON persistant"
+command: ".claude/bin/wiki-broken-links"
+aliases:
+  - wiki_broken_links
+help: "wiki-broken-links [--view]"

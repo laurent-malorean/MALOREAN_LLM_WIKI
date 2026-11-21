@@ -1,0 +1,24 @@
+#!/bin/bash
+# Wrapper pour scanner les liens cassés du wiki
+# Usage: wiki-broken-links [--view]
+
+set -e
+
+WIKI_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+SCRIPT="${WIKI_ROOT}/.claude/scripts/wiki-broken-links.py"
+REPORT="${WIKI_ROOT}/data/generated/logs/wiki/broken-links.json"
+
+# Exécuter le scan
+echo "🔍 Scan des liens cassés..."
+(cd "$WIKI_ROOT" && uv run python "$SCRIPT")
+
+# Afficher le rapport si --view
+if [[ "$1" == "--view" ]]; then
+  echo ""
+  echo "📊 Rapport détaillé:"
+  jq '.' "$REPORT"
+fi
+
+echo ""
+echo "💾 Rapport sauvegardé: $REPORT"
+echo "📄 Consultez avec: jq . data/generated/logs/wiki/broken-links.json"

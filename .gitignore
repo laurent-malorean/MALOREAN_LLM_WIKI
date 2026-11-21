@@ -1,0 +1,21 @@
+# --- Système / éditeur ---
+.DS_Store
+.trash/
+.smart-env/
+.obsidian/
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Claude Code (réglages locaux) ---
+.claude/settings.local.json
+.claude/worktrees/
+
+# --- Temporaire ---
+tmp/
+
+# --- Données : dépôt privé séparé (MALOREAN_LLM_WIKI_DATA) ---
+/data/
