@@ -60,7 +60,13 @@ uv sync
 
 Toujours lancer Python avec `uv run python <script>`. Ne jamais utiliser `python` ou `pip` directement.
 
-Outil système requis : `pdftotext` (poppler, via Homebrew) pour l'extraction de texte des PDF.
+Outils système requis (non installés par uv), sur Mac avec Homebrew :
+
+```
+brew install poppler tesseract ghostscript
+```
+
+`poppler` fournit `pdftotext` (extraction du texte des PDF). `tesseract` et `ghostscript` servent à l'OCR des PDF scannés.
 
 ## Utilisation
 
